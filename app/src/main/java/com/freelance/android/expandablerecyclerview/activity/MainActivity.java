@@ -1,4 +1,4 @@
-package com.freelance.android.expandablerecyclerview;
+package com.freelance.android.expandablerecyclerview.activity;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.freelance.android.expandablerecyclerview.R;
 import com.freelance.android.expandablerecyclerview.adapter.HeroAdapter;
 import com.freelance.android.expandablerecyclerview.model.Hero;
 import com.freelance.android.expandablerecyclerview.services.APIService;
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         loadingIndicator = this.findViewById(R.id.pbLoadingIndicator);
         mEmptyStateTextView = this.findViewById(R.id.tvEmpty);
 
-
         loadHeroes();
     }
 
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.i(LOG_TAG, "TEST: onResponse() called...");
 
                         try {
-
                             if (response.isSuccessful()) {
                                 mHeroList = response.body();
 
@@ -88,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
-
                     }
 
                     @Override
