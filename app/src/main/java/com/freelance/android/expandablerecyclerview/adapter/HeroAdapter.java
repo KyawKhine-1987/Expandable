@@ -19,7 +19,7 @@ import com.freelance.android.expandablerecyclerview.model.Hero;
 import java.util.List;
 
 
-public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder> {
+public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.MyViewHolder> {
 
     private static final String LOG_TAG = HeroAdapter.class.getName();
 
@@ -36,15 +36,15 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
     }
 
     @Override
-    public HeroViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.i(LOG_TAG, "TEST: onCreateViewHolder() is called...");
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout_heroes, parent, false);
-        return new HeroViewHolder(v);
+        return new MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final HeroViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Log.i(LOG_TAG, "TEST: onBindViewHolder() is called...");
 
         Hero hero = heroList.get(position);
@@ -86,7 +86,7 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
                 //getting the position of the item to expand it
                 currentPosition = position;
 
-                //reloding the list
+                //reloading the list
                 notifyDataSetChanged();
             }
         });
@@ -99,13 +99,13 @@ public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.HeroViewHolder
         return heroList.size();
     }
 
-    public class HeroViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textViewName, textViewRealName, textViewTeam, textViewFirstAppearance,
                 textViewCreatedBy, textViewPublisher, textViewBio;
         ImageView imageView;
         LinearLayout linearLayout;
 
-        HeroViewHolder(View itemView) {
+        public MyViewHolder(View itemView) {
             super(itemView);
 
             textViewName = this.itemView.findViewById(R.id.textViewName);
